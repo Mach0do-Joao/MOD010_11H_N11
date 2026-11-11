@@ -1,0 +1,22 @@
+﻿PROJETO GESTÃO DE EQUIPAMENTOS DA ESCOLA - MÓDULO 10 (POO, 2.ª parte)
+FASE 1 - Referências, new, null, garbage collector
+A aplicação ganha: Classe Equipamento; adicionar, editar e remover na lista
+
+Projeto inicial: os dois formulários estão desenhados e os botões já têm os eventos criados.
+As pastas Modelo e Logica estão vazias: a classe Equipamento é criada por vocês (botão direito em Modelo > Adicionar > Classe).
+
+COMO ABRIR
+  Abrir o ficheiro GestaoEquipamentos.sln no Visual Studio 2022 e carregar em F5.
+  O projeto usa C# 7.3 (a versão do .NET Framework 4.8). Está preparado para .NET 8;
+  para usar o .NET Framework 4.8, ver o comentário no ficheiro GestaoEquipamentos.csproj.
+
+O QUE FALTA FAZER
+  Os sítios onde há trabalho estão marcados com comentários // TODO Fase 1.
+  Para os ver todos: menu Ver > Lista de Tarefas (View > Task List).
+
+  Interface\FormEquipamento.cs     linhas 8, 9, 18, 23
+  Interface\FormPrincipal.cs       linhas 4, 11, 16, 19, 32, 38, 45, 51
+
+REGRA DE OURO
+  Nenhum MessageBox fora da pasta Interface e nenhuma regra de negócio
+  (cálculos, validações, pesquisas) dentro dos formulários.
