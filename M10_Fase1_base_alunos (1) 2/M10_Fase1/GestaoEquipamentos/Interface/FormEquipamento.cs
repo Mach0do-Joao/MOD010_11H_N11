@@ -8,8 +8,8 @@ namespace GestaoEquipamentos.Interface
     {
         // TODO Fase 1: criar o campo público EquipamentoCriado (do tipo Equipamento)
         // TODO Fase 1: criar o campo privado equipamentoEmEdicao (fica null no modo adicionar)
-        public equipamento EquipamentoCriado;
-        private equipamento equipamentoEmEdicao;
+        public Equipamento EquipamentoCriado;
+        private Equipamento equipamentoEmEdicao;
 
         // Construtor para ADICIONAR
         public FormEquipamento()
@@ -19,7 +19,7 @@ namespace GestaoEquipamentos.Interface
             equipamentoEmEdicao = null;
         }
 
-        public FormEquipamento(equipamento eq)
+        public FormEquipamento(Equipamento eq)
         {
             InitializeComponent();
             Text = "Editar equipamento";
@@ -28,11 +28,11 @@ namespace GestaoEquipamentos.Interface
             equipamentoEmEdicao = eq;
 
             // Preencher as caixas com os dados atuais
-            txtMarca.Text = eq.Marca;
-            txtModelo.Text = eq.Modelo;
-            txtNumeroSerie.Text = eq.Sala;
-            nudAno.Text = eq.AnoAquisicao.ToString();
-            nudPreco.Text = eq.PrecoCompra.ToString();
+            txtMarca.Text = eq.marca;
+            txtModelo.Text = eq.modelo;
+            txtNumeroSerie.Text = eq.sala;
+            nudAno.Text = eq.anoAquisicao.ToString();
+            nudPreco.Text = eq.precoCompra.ToString();
         }
         // TODO Fase 1: criar um segundo construtor, para EDITAR, que recebe o equipamento selecionado,
         //              o guarda em equipamentoEmEdicao e preenche as caixas com os dados dele
@@ -84,15 +84,15 @@ namespace GestaoEquipamentos.Interface
 
             if (equipamentoEmEdicao == null)
             {
-                EquipamentoCriado = new equipamento(marca, modelo, numeroSerie, ano, preco);
+                EquipamentoCriado = new Equipamento(marca, modelo, numeroSerie, ano, preco);
             }
             else
             {
-                equipamentoEmEdicao.Marca = marca;
-                equipamentoEmEdicao.Modelo = modelo;
-                equipamentoEmEdicao.Sala = numeroSerie;
-                equipamentoEmEdicao.AnoAquisicao = ano;
-                equipamentoEmEdicao.PrecoCompra = preco;
+                equipamentoEmEdicao.marca = marca;
+                equipamentoEmEdicao.modelo = modelo;
+                equipamentoEmEdicao.sala = numeroSerie;
+                equipamentoEmEdicao.anoAquisicao = ano;
+                equipamentoEmEdicao.precoCompra = preco;
             }
                 // Fechar o formulário com o resultado OK
                 DialogResult = DialogResult.OK;

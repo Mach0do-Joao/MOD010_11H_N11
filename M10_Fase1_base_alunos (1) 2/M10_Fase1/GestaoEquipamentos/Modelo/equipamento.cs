@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace GestaoEquipamentos.Modelo
 {
-    public class equipamento
+    public class Equipamento
     {
-        public string Marca;
-        public string Modelo;
-        public string Sala;
-        public int AnoAquisicao;
-        public decimal PrecoCompra;
+        public string marca;
+        public string modelo;
+        public string sala;
+        public int anoAquisicao;
+        public decimal precoCompra;
 
-        public equipamento(string _marca, string _modelo, string _sala, int _anoAquisicao, decimal _precoCompra)
+        public Equipamento(string _Marca, string _Modelo, string _Sala, int _AnoAquisicao, decimal _PrecoCompra)
         {
-            Marca = _marca;
-            Modelo = _modelo;
-            Sala = _sala;
-            AnoAquisicao = _anoAquisicao;
-            PrecoCompra = _precoCompra;
+            marca = _Marca;
+            modelo = _Modelo;
+            sala = _Sala;
+            anoAquisicao = _AnoAquisicao;
+            precoCompra = _PrecoCompra;
         }
 
         public string ObterDescricao()
         {
-            return "Marca: " + Marca + "\nModelo: " + Modelo + "\nSala: " + Sala + "\nAno de Aquisição: " + AnoAquisicao +"\nPreço de Compra: " + PrecoCompra;
+            return "Marca: " + marca + "\nModelo: " + modelo + "\nSala: " + sala + "\nAno de Aquisição: " + anoAquisicao +"\nPreço de Compra: " + precoCompra;
         }
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ESEN\\Desktop\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\GestaoEquipamentos.csproj",
+      "projectUniqueName": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\GestaoEquipamentos.csproj",
       "projectName": "GestaoEquipamentos",
-      "projectPath": "C:\\Users\\ESEN\\Desktop\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\GestaoEquipamentos.csproj",
+      "projectPath": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\GestaoEquipamentos.csproj",
       "packagesPath": "C:\\Users\\ESEN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ESEN\\Desktop\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\obj\\",
+      "outputPath": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ESEN\\AppData\\Roaming\\NuGet\\NuGet.Config",

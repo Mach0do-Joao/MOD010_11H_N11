@@ -11,54 +11,85 @@ namespace GestaoEquipamentos.Interface
     public partial class FormPrincipal : Form
     {
         // TODO Fase 1: criar o campo List<Equipamento> equipamentos (já com new)
-        List<equipamento> Equipamentos = new List<equipamento>();
+        List<Equipamento> equipamentos = new List<Equipamento>(); 
 
-        public FormPrincipal()
+        public FormPrincipal() // construtor do form principal  
         {
             InitializeComponent();
 
             // Computadores de Aluno e Professor
-            Equipamentos.Add(new equipamento("HP", "ProDesk", "B12", 2020, 650));
-            Equipamentos.Add(new equipamento("Lenovo", "ProDesk", "B02", 2019, 500));
-            Equipamentos.Add(new equipamento("HP", "ProDesk", "C02", 2024, 750));
-            Equipamentos.Add(new equipamento("HP", "ProDesk", "C09", 2020, 550));
+            equipamentos.Add(new Equipamento("HP", "ProDesk", "B12", 2020, 650));
+            equipamentos.Add(new Equipamento("Lenovo", "ProDesk", "B02", 2019, 500));
+            equipamentos.Add(new Equipamento("HP", "ProDesk", "C02", 2024, 750));
+            equipamentos.Add(new Equipamento("HP", "ProDesk", "C09", 2020, 550));
 
             // Projeção e Interatividade
-            Equipamentos.Add(new equipamento("Epson", "EB-685W", "PROJ-01", 2019, 1200));
+            equipamentos.Add(new Equipamento("Epson", "EB-685W", "PROJ-01", 2019, 1200));
 
             // Impressão
-            Equipamentos.Add(new equipamento("APC", "Back-UPS 1400VA", "UPS-01", 2021, 160));
+            equipamentos.Add(new Equipamento("APC", "Back-UPS 1400VA", "UPS-01", 2021, 160));
 
+            // mostar equipamentos
             MostrarEquipamentos();
             // TODO Fase 1: no fim do construtor, chamar MostrarEquipamentos()
         }
 
-        private void MostrarEquipamentos()
+        private void MostrarEquipamentos() // mostrar os objetos na lista view
         {
-            lvEquipamentos.Items.Clear();
+            lvEquipamentos.Items.Clear(); // limpar a list view
 
-            for (int i = 0; i < Equipamentos.Count; i++)
-            {
+            //for (int i = 0; i < equipamentos.Count; i++)
+              foreach (Equipamento equipamento in equipamentos)  //for se precisar do indice
+                                                                 // foreach se não precisar do indice
+                                                                //count ( len do python 
+              {
+                lvEquipamentos.Items.Add(CriarLinha (equipamento));
 
-                equipamento eq = Equipamentos[i];
+                //Equipamento eq = equipamentos[i];
 
-                ListViewItem linha = new ListViewItem(""); // Id
+                /*ListViewItem linha = new ListViewItem("");
 
-                linha.SubItems.Add("");                     // Tipo
-                linha.SubItems.Add(eq.Marca);                  // Marca
-                linha.SubItems.Add(eq.Modelo);              // Modelo
+                linha.SubItems.Add("");                     // ID
+                linha.SubItems.Add(equipamento.marca);                  // Marca
+                linha.SubItems.Add(equipamento.modelo);              // Modelo
                 linha.SubItems.Add("");                     // N.º de série
-                linha.SubItems.Add(eq.Sala);                // Sala
-                linha.SubItems.Add(eq.AnoAquisicao.ToString()); // Ano
-                linha.SubItems.Add(eq.PrecoCompra.ToString());  // Preço
+                linha.SubItems.Add(equipamento.sala);                // Sala
+                linha.SubItems.Add(equipamento.anoAquisicao.ToString()); // Ano
+                linha.SubItems.Add(equipamento.precoCompra.ToString());  // Preço
                 linha.SubItems.Add("");                     // Estado
                 linha.SubItems.Add("");                     // Valor atual
 
-                lvEquipamentos.Items.Add(linha);
-            }
-
-            lblResumo.Text = "Equipamentos na lista:" + Equipamentos.Count;
+                lvEquipamentos.Items.Add(linha);*/
+                AtaulizarResumo();
+              }
+            
+            //lblResumo.Text = "Equipamentos na lista:" + equipamentos.Count;
         }
+
+        private void AtaulizarResumo()
+        {
+            lblResumo.Text = "Equipamentos na lista:" + equipamentos.Count; // count conta (lem do python)
+        }
+
+        private ListViewItem CriarLinha(Equipamento equipamento)  // criar uma linha de objeto, dps é adiciona
+        {
+           
+            ListViewItem linha = new ListViewItem("");
+
+            linha.SubItems.Add("");                     // ID
+            linha.SubItems.Add(equipamento.marca);                  // Marca
+            linha.SubItems.Add(equipamento.modelo);              // Modelo
+            linha.SubItems.Add("");                     // N.º de série
+            linha.SubItems.Add(equipamento.sala);                // Sala
+            linha.SubItems.Add(equipamento.anoAquisicao.ToString()); // Ano
+            linha.SubItems.Add(equipamento.precoCompra.ToString());  // Preço
+            linha.SubItems.Add("");                     // Estado
+            linha.SubItems.Add("");                     // Valor atual
+
+            return linha;
+            
+        }
+
         // TODO Fase 1: criar o método MostrarEquipamentos(), que limpa a ListView
         //              (lvEquipamentos.Items.Clear()) e junta uma linha por equipamento.
         //              Ordem das colunas: Id, Tipo, Marca, Modelo, N.º de série, Sala, Ano,
@@ -79,7 +110,7 @@ namespace GestaoEquipamentos.Interface
             if (form.ShowDialog() == DialogResult.OK)
             {
                 // Se o utilizador guardou, juntar o novo equipamento à lista
-                Equipamentos.Add(form.EquipamentoCriado);
+                equipamentos.Add(form.EquipamentoCriado);
 
                 // Atualizar a listagem no formulário principal
                 MostrarEquipamentos();
@@ -100,7 +131,7 @@ namespace GestaoEquipamentos.Interface
             }
 
             int indice = lvEquipamentos.SelectedItems[0].Index;
-            equipamento eqSelecionado = Equipamentos[indice];
+            Equipamento eqSelecionado = equipamentos[indice];
 
             FormEquipamento form = new FormEquipamento(eqSelecionado);
 
@@ -121,7 +152,7 @@ namespace GestaoEquipamentos.Interface
             }
 
             int indice = lvEquipamentos.SelectedItems[0].Index;
-            equipamento eqSelecionado = Equipamentos[indice];
+            Equipamento eqSelecionado = equipamentos[indice];
 
             if (eqSelecionado == null)
             {
@@ -133,7 +164,7 @@ namespace GestaoEquipamentos.Interface
 
             if (resultado == DialogResult.Yes)
             {
-                Equipamentos.Remove(eqSelecionado);
+                equipamentos.Remove(eqSelecionado);
                 eqSelecionado = null;
                 MostrarEquipamentos();
             }
@@ -149,9 +180,9 @@ namespace GestaoEquipamentos.Interface
             }
 
             int indice = lvEquipamentos.SelectedItems[0].Index;
-            equipamento eq = Equipamentos[indice];
+            Equipamento eq = equipamentos[indice];
 
-            txtDetalhes.Text = eq.Marca + "\n" + eq.Modelo + "\n" + eq.Sala;
+            txtDetalhes.Text = eq.marca + "\n" + eq.modelo + "\n" + eq.sala;
         }
 
         // Duplo clique numa linha = Editar
@@ -190,21 +221,21 @@ namespace GestaoEquipamentos.Interface
             lvEquipamentos.Items.Clear();
             int contador = 0;
 
-            for (int i = 0; i < Equipamentos.Count; i++)
+            for (int i = 0; i < equipamentos.Count; i++)
             {
-                equipamento eq = Equipamentos[i];
+                Equipamento eq = equipamentos[i];
 
                 // Exemplo de condição (ajusta "Ram" para o nome exato da propriedade quando a criores na classe equipamento)
                 // if (eq.Ram <= 4)
                 {
                     ListViewItem linha = new ListViewItem("");
                     linha.SubItems.Add("");
-                    linha.SubItems.Add(eq.Marca);
-                    linha.SubItems.Add(eq.Modelo);
+                    linha.SubItems.Add(eq.marca);
+                    linha.SubItems.Add(eq.modelo);
                     linha.SubItems.Add("");
-                    linha.SubItems.Add(eq.Sala);
-                    linha.SubItems.Add(eq.AnoAquisicao.ToString());
-                    linha.SubItems.Add(eq.PrecoCompra.ToString());
+                    linha.SubItems.Add(eq.sala);
+                    linha.SubItems.Add(eq.anoAquisicao.ToString());
+                    linha.SubItems.Add(eq.precoCompra.ToString());
                     linha.SubItems.Add("");
                     linha.SubItems.Add("");
 
