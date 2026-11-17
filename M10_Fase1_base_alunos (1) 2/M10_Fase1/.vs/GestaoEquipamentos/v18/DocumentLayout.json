@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formequipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|c:\\users\\esen\\desktop\\github\\mod010_11h_n11\\m10_fase1_base_alunos (1) 2\\m10_fase1\\gestaoequipamentos\\interface\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\gestaoequipamentos\\interface\\formequipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formequipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|c:\\users\\esen\\desktop\\github\\mod010_11h_n11\\m10_fase1_base_alunos (1) 2\\m10_fase1\\gestaoequipamentos\\modelo\\equipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\gestaoequipamentos\\interface\\formequipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formequipamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|c:\\users\\esen\\desktop\\github\\mod010_11h_n11\\m10_fase1_base_alunos (1) 2\\m10_fase1\\gestaoequipamentos\\interface\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B1E2C3A-4D5F-4A7B-9C8D-0E1F2A3B4C5D}|GestaoEquipamentos\\GestaoEquipamentos.csproj|solutionrelative:gestaoequipamentos\\interface\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,15 +38,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormEquipamento.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "FormEquipamento.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormEquipamento.cs",
               "RelativeDocumentMoniker": "GestaoEquipamentos\\Interface\\FormEquipamento.cs",
-              "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormEquipamento.cs [Design]",
-              "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormEquipamento.cs [Design]",
+              "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormEquipamento.cs [Projeto]",
+              "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormEquipamento.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T11:33:47.255Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
@@ -58,7 +58,8 @@
               "RelativeToolTip": "GestaoEquipamentos\\Modelo\\Equipamento.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T10:23:04.279Z"
+              "WhenOpened": "2026-11-12T10:23:04.279Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -69,19 +70,21 @@
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormPrincipal.cs [Projeto]",
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormPrincipal.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T19:25:14.511Z"
+              "WhenOpened": "2026-11-11T19:25:14.511Z",
+              "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "FormPrincipal.cs",
               "DocumentMoniker": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormPrincipal.cs",
               "RelativeDocumentMoniker": "GestaoEquipamentos\\Interface\\FormPrincipal.cs",
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormPrincipal.cs",
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormPrincipal.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T19:24:09.436Z"
+              "WhenOpened": "2026-11-11T19:24:09.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,7 +94,7 @@
               "RelativeDocumentMoniker": "GestaoEquipamentos\\Interface\\FormEquipamento.cs",
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormEquipamento.cs",
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormEquipamento.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wFgAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAADMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-11T19:24:04.457Z",
               "EditorCaption": ""

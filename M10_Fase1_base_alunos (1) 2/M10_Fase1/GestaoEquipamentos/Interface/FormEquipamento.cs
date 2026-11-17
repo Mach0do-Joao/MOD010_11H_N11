@@ -42,56 +42,29 @@ namespace GestaoEquipamentos.Interface
             // TODO Fase 1: ler os dados das caixas; no modo adicionar criar o objeto com new e guardá-lo
             //              em EquipamentoCriado; no modo editar alterar os campos de equipamentoEmEdicao
             //              (sem criar nenhum objeto novo). No fim: DialogResult = DialogResult.OK;
-            InitializeComponent();
-            Text = "Editar equipamento";
-
-            if (string.IsNullOrWhiteSpace(txtMarca.Text))
+            if (txtMarca.Text == "" || txtModelo.Text == "" || txtSala.Text == "" || nudAno.Value == 0 || nudAno.Value == 0)
             {
-                MessageBox.Show("Por favor, adicine a marca.", "Aviso");
-                return;
+                MessageBox.Show("Certifique-se de que todos os dados foram devidamente preenchimento");
             }
-
-            if (string.IsNullOrWhiteSpace(txtModelo.Text))
-            {
-                MessageBox.Show("Por favor, adicine o modelo.", "Aviso");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtNumeroSerie.Text))
-            {
-                MessageBox.Show("Por favor, adicine o número.", "Aviso");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(nudAno.Text))
-            {
-                MessageBox.Show("Por favor, adicine o ano.", "Aviso");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(nudPreco.Text))
-            {
-                MessageBox.Show("Por favor, adicine o preço.", "Aviso");
-                return;
-            }
-
-            string marca = txtMarca.Text;
-            string modelo = txtModelo.Text;
-            string numeroSerie = txtNumeroSerie.Text;
-
-            int ano = int.Parse(nudAno.Text);
-            decimal preco = decimal.Parse(nudPreco.Text);
+            
+            string marca = txtMarca.Text.Trim();
+            string modelo = txtModelo.Text.Trim();
+            string sala=txtSala.Text.Trim();
+            string numeroSerie = txtNumeroSerie.Text.Trim();
+            int anoAquipamento = (int)nudAno.Value;
+            decimal preco = nudPreco.Value;
 
             if (equipamentoEmEdicao == null)
-            {
-                EquipamentoCriado = new Equipamento(marca, modelo, numeroSerie, ano, preco);
+            {   
+                //Estamos no modo adicionar:cria um novo objeto
+                EquipamentoCriado = new Equipamento(marca, modelo, numeroSerie, anoAquipamento, preco);
             }
             else
             {
                 equipamentoEmEdicao.marca = marca;
                 equipamentoEmEdicao.modelo = modelo;
                 equipamentoEmEdicao.sala = numeroSerie;
-                equipamentoEmEdicao.anoAquisicao = ano;
+                equipamentoEmEdicao.anoAquisicao = anoAquipamento;
                 equipamentoEmEdicao.precoCompra = preco;
             }
                 // Fechar o formulário com o resultado OK
