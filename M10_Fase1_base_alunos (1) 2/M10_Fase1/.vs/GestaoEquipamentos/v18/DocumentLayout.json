@@ -45,8 +45,7 @@
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormEquipamento.cs [Design]",
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormEquipamento.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T11:33:47.255Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-11-12T11:33:47.255Z"
             },
             {
               "$type": "Document",
@@ -56,7 +55,7 @@
               "RelativeDocumentMoniker": "GestaoEquipamentos\\Modelo\\Equipamento.cs",
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Modelo\\Equipamento.cs",
               "RelativeToolTip": "GestaoEquipamentos\\Modelo\\Equipamento.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T10:23:04.279Z",
               "EditorCaption": ""
@@ -70,8 +69,7 @@
               "ToolTip": "C:\\Users\\ESEN\\Desktop\\github\\MOD010_11H_N11\\M10_Fase1_base_alunos (1) 2\\M10_Fase1\\GestaoEquipamentos\\Interface\\FormPrincipal.cs [Projeto]",
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormPrincipal.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T19:25:14.511Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2026-11-11T19:25:14.511Z"
             },
             {
               "$type": "Document",
@@ -83,8 +81,7 @@
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormPrincipal.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwBcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T19:24:09.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-11T19:24:09.436Z"
             },
             {
               "$type": "Document",
@@ -96,8 +93,7 @@
               "RelativeToolTip": "GestaoEquipamentos\\Interface\\FormEquipamento.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAAADMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T19:24:04.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-11T19:24:04.457Z"
             }
           ]
         }

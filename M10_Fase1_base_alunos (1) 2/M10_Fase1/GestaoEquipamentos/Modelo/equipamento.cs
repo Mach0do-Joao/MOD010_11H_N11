@@ -1,4 +1,6 @@
-﻿using System;
+﻿//fiquei no passo 13
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,11 +29,34 @@ namespace GestaoEquipamentos.Modelo
             sala = _Sala;
             anoAquisicao = _AnoAquisicao;
             precoCompra = _PrecoCompra;
+
+            AlterarPrecoCompra(_PrecoCompra);
         }
 
         public int ObterId()
         {
             return id;
+        }
+
+        public decimal ObterPrecoCompra()
+        {
+            return precoCompra;
+        }
+
+        public decimal ObterPreco_Compra()
+        {
+            return precoCompra;
+        }
+
+        public bool AlterarPrecoCompra(decimal novoPreco)
+        {
+            if (novoPreco <= 0)
+            {
+                return false;
+            }
+
+            precoCompra = novoPreco;
+            return true;
         }
 
         public string ObterDescricao()
