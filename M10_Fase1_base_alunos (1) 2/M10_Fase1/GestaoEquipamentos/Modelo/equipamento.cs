@@ -31,13 +31,14 @@ namespace GestaoEquipamentos.Modelo
             precoCompra = _PrecoCompra;
 
             AlterarPrecoCompra(_PrecoCompra);
+            //precoCompra.Value = ObterPrecoCompra();
         }
 
         public int ObterId()
         {
             return id;
         }
-
+                
         public decimal ObterPrecoCompra()
         {
             return precoCompra;

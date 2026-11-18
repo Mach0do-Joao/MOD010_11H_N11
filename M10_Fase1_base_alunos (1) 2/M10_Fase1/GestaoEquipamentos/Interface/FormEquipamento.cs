@@ -42,9 +42,10 @@ namespace GestaoEquipamentos.Interface
             // TODO Fase 1: ler os dados das caixas; no modo adicionar criar o objeto com new e guardá-lo
             //              em EquipamentoCriado; no modo editar alterar os campos de equipamentoEmEdicao
             //              (sem criar nenhum objeto novo). No fim: DialogResult = DialogResult.OK;
-            if (txtMarca.Text == "" || txtModelo.Text == "" || txtSala.Text == "" || nudAno.Value == 0 || nudAno.Value == 0)
+            if (txtMarca.Text == "" || txtModelo.Text == "" || txtSala.Text == "" )  //|| nudAno.Value == 0 || nudAno.Value == 0)
             {
                 MessageBox.Show("Certifique-se de que todos os dados foram devidamente preenchimento");
+                return;
             }
             
             string marca = txtMarca.Text.Trim();

@@ -124,6 +124,11 @@ namespace GestaoEquipamentos.Interface
             //              chamar MostrarEquipamentos()
             // 1. Verificar se há algum equipamento selecionado na ListView
             // 2. Verificar se é null (ou seja, se não há nada selecionado)
+
+            
+             
+
+            //privete Equipamento ObterEquipamentoSelecionado()
             if (lvEquipamentos.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Por favor, seleciona um equipamento para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -173,6 +178,7 @@ namespace GestaoEquipamentos.Interface
         private void lvEquipamentos_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO Fase 1: mostrar em txtDetalhes os dados do equipamento selecionado
+            Equipamento eq = null;
             if (lvEquipamentos.SelectedItems.Count == 0)
             {
                 txtDetalhes.Text = "";
@@ -180,7 +186,7 @@ namespace GestaoEquipamentos.Interface
             }
 
             int indice = lvEquipamentos.SelectedItems[0].Index;
-            Equipamento eq = equipamentos[indice];
+            eq = equipamentos[indice];
 
             txtDetalhes.Text = eq.marca + "\n" + eq.modelo + "\n" + eq.sala;
         }
@@ -229,20 +235,22 @@ namespace GestaoEquipamentos.Interface
                 // if (eq.Ram <= 4)
                 {
                     ListViewItem linha = new ListViewItem("");
-                    linha.SubItems.Add("");
-                    linha.SubItems.Add(eq.marca);
-                    linha.SubItems.Add(eq.modelo);
-                    linha.SubItems.Add("");
-                    linha.SubItems.Add(eq.sala);
-                    linha.SubItems.Add(eq.anoAquisicao.ToString());
-                    linha.SubItems.Add(eq.precoCompra.ToString());
-                    linha.SubItems.Add("");
-                    linha.SubItems.Add("");
-
+                    linha.SubItems.Add("");  // ID
+                    linha.SubItems.Add(eq.marca);  // Marca
+                    linha.SubItems.Add(eq.modelo);  // Modelo
+                    linha.SubItems.Add("");  // N.º de série
+                    linha.SubItems.Add(eq.sala);  // Sala
+                    linha.SubItems.Add(eq.anoAquisicao.ToString());  // Ano
+                    //linha.SubItems.Add(eq.precoCompra.ToString());
+                    linha.SubItems.Add(eq.ObterPrecoCompra().ToString());  // Preço
+                    linha.SubItems.Add("");  //Estado
+                    linha.SubItems.Add("");  //Valor atual
+     
                     lvEquipamentos.Items.Add(linha);
-                    contador++;
                 }
-            }
+               
+                //lblResumo.Text = "Equipamentos na lista: " + contador;
+            }    
 
             lblResumo.Text = "Equipamentos na lista: " + contador;
         }
