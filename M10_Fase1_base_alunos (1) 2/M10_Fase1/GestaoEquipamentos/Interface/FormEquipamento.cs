@@ -15,9 +15,14 @@ namespace GestaoEquipamentos.Interface
         public FormEquipamento()
         {
             InitializeComponent();
+            nudAno.Minimum = Equipamento.ANO_MINIMO_AQUISICAO;
+            nudAno.Maximum = DateTime.Today.Year;
+            nudAno.Value = DateTime.Today.Year;
+
             Text = "Adicionar equipamento";
             equipamentoEmEdicao = null;
         }
+
 
         public FormEquipamento(Equipamento eq)
         {

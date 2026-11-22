@@ -10,6 +10,7 @@ namespace GestaoEquipamentos.Modelo
 {
     public class Equipamento
     {
+        public const int ANO_MINIMO_AQUISICAO = 2000;
         private static int proximoId = 1;
         private readonly int id;    
         public string marca;
@@ -27,11 +28,16 @@ namespace GestaoEquipamentos.Modelo
             marca = _Marca;
             modelo = _Modelo;
             sala = _Sala;
-            anoAquisicao = _AnoAquisicao;
-            precoCompra = _PrecoCompra;
+            if (_AnoAquisicao < ANO_MINIMO_AQUISICAO)
+            {
+                anoAquisicao = ANO_MINIMO_AQUISICAO;
+            }
+            else
+            {
+                anoAquisicao = _AnoAquisicao;
+            }
 
             AlterarPrecoCompra(_PrecoCompra);
-            //precoCompra.Value = ObterPrecoCompra();
         }
 
         public int ObterId()

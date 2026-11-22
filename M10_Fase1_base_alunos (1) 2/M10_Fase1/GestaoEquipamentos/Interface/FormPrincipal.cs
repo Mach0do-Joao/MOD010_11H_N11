@@ -187,7 +187,6 @@ namespace GestaoEquipamentos.Interface
 
             int indice = lvEquipamentos.SelectedItems[0].Index;
             eq = equipamentos[indice];
-
             txtDetalhes.Text = eq.marca + "\n" + eq.modelo + "\n" + eq.sala;
         }
 
