@@ -1,4 +1,5 @@
-﻿using GestaoEquipamentos.Modelo;
+﻿using GestaoEquipamentos.Logica;
+using GestaoEquipamentos.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -10,40 +11,62 @@ namespace GestaoEquipamentos.Interface
 {
     public partial class FormPrincipal : Form
     {
+        // O equipamento criado no modo adicionar (o FormPrincipal vai buscá-lo aqui)
+        public Equipamento EquipamentoCriado;
+
+        // No modo editar aponta para o equipamento a alterar; no modo adicionar fica null
+        private Equipamento equipamentoEmEdicao;
+
+        public FormEquipamento()
+        {
+            InitializeComponent();
+            Text = "Adicionar equipamento";
+            nudAno.Minimum = Equipamento.ANO_MINIMO_AQUISICAO;
+            nudAno.Maximum = DateTime.Today.Year;
+            nudAno.Value = DateTime.Today.Year;
+        }
+
         // TODO Fase 1: criar o campo List<Equipamento> equipamentos (já com new)
-        List<Equipamento> equipamentos = new List<Equipamento>(); 
+        List<Equipamento> equipamentos = new List<Equipamento>();
 
         public FormPrincipal() // construtor do form principal  
         {
             InitializeComponent();
 
-            // Computadores de Aluno e Professor
-            equipamentos.Add(new Equipamento("HP", "ProDesk", "B12", 2020, 650));
-            equipamentos.Add(new Equipamento("Lenovo", "ProDesk", "B02", 2019, 500));
-            equipamentos.Add(new Equipamento("HP", "ProDesk", "C02", 2024, 750));
-            equipamentos.Add(new Equipamento("HP", "ProDesk", "C09", 2020, 550));
-
-            // Projeção e Interatividade
-            equipamentos.Add(new Equipamento("Epson", "EB-685W", "PROJ-01", 2019, 1200));
-
-            // Impressão
-            equipamentos.Add(new Equipamento("APC", "Back-UPS 1400VA", "UPS-01", 2021, 160));
-
-            // mostar equipamentos
-            MostrarEquipamentos();
-            // TODO Fase 1: no fim do construtor, chamar MostrarEquipamentos()
+            Text = "Gestão de Equipamentos - " + Escola.NOME;
+            DadosExemplo.Carregar(equipamentos);
+            txtResponsavel.Text = Escola.ObterResponsavel();
         }
+
+        // Construtor para EDITAR: recebe o equipamento que está selecionado na lista
+        public FormEquipamento(Equipamento equipamento)
+        {
+            InitializeComponent();
+            Text = "Editar equipamento";
+            nudAno.Minimum = Equipamento.ANO_MINIMO_AQUISICAO;
+            nudAno.Maximum = DateTime.Today.Year;
+
+            equipamentoEmEdicao = equipamento;
+            txtMarca.Text = equipamento.marca;
+            txtModelo.Text = equipamento.modelo;
+            txtSala.Text = equipamento.sala;
+            nudAno.Value = equipamento.anoAquisicao;
+            nudPreco.Value = equipamento.ObterPrecoCompra();
+        }
+        // TODO Fase 1: no fim do construtor, chamar MostrarEquipamentos()
+
+        // ---------- Mostrar dados ----------
 
         private void MostrarEquipamentos() // mostrar os objetos na lista view
         {
             lvEquipamentos.Items.Clear(); // limpar a list view
 
             //for (int i = 0; i < equipamentos.Count; i++)
-              foreach (Equipamento equipamento in equipamentos)  //for se precisar do indice
-                                                                 // foreach se não precisar do indice
-                                                                //count ( len do python 
-              {
-                lvEquipamentos.Items.Add(CriarLinha (equipamento));
+            foreach (Equipamento equipamento in equipamentos)  //for se precisar do indice
+                                                               // foreach se não precisar do indice
+                                                               //count ( len do python 
+            {
+                lvEquipamentos.Items.Add(CriarLinha(equipamento));
 
                 //Equipamento eq = equipamentos[i];
 
@@ -62,8 +85,8 @@ namespace GestaoEquipamentos.Interface
                 lvEquipamentos.Items.Add(linha);*/
                 txtDetalhes.Text = "";
                 AtualizarResumo();
-              }
-            
+            }
+
             //lblResumo.Text = "Equipamentos na lista:" + equipamentos.Count;
         }
 
@@ -121,7 +144,7 @@ namespace GestaoEquipamentos.Interface
             // Se o utilizador guardou, juntar o novo equipamento à lista
             // Não é preciso "guardar na lista": o formulário alterou o próprio objeto,
             // e a lista aponta para esse mesmo objeto (é a mesma referência).
-            
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -145,7 +168,7 @@ namespace GestaoEquipamentos.Interface
                 MostrarEquipamentos();
             }
         }
-            //privete Equipamento ObterEquipamentoSelecionado()
+        //privete Equipamento ObterEquipamentoSelecionado()
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
@@ -154,32 +177,31 @@ namespace GestaoEquipamentos.Interface
             Equipamento equipamento = ObterEquipamentoSelecionado();
             if (equipamento == null)
             {
-                MessageBox.Show("Selecione primeiro um equipamento na lista.", "Editar",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione primeiro um equipamento na lista.", "Remover",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            DialogResult resposta = MessageBox.Show("Remover o equipamento " + equipamento.marca + " " + equipamento.modelo + "?", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resposta = MessageBox.Show(
+                "Remover o equipamento " + equipamento.marca + " " + equipamento.modelo + "?","Remover",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
             if (resposta == DialogResult.Yes)
             {
-            equipamentos.Remove(equipamento);
-            equipamento = null;
-            MostrarEquipamentos();
+                equipamentos.Remove(equipamento);
+                equipamento = null;
+                MostrarEquipamentos();
             }
         }
         private void lvEquipamentos_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO Fase 1: mostrar em txtDetalhes os dados do equipamento selecionado
-            Equipamento eq = null;
-            if (lvEquipamentos.SelectedItems.Count == 0)
+            Equipamento equipamento = ObterEquipamentoSelecionado();
+            if (equipamento == null)
             {
                 txtDetalhes.Text = "";
                 return;
             }
 
-            int indice = lvEquipamentos.SelectedItems[0].Index;
-            eq = equipamentos[indice];
-            txtDetalhes.Text = eq.marca + "\n" + eq.modelo + "\n" + eq.sala;
+            txtDetalhes.Text = equipamento.ObterDescricao();
         }
 
         // Duplo clique numa linha = Editar
@@ -190,6 +212,16 @@ namespace GestaoEquipamentos.Interface
 
         private void btnAlterarResponsavel_Click(object sender, EventArgs e)
         {
+            if (Escola.AlterarResponsavel(txtResponsavel.Text))
+            {
+                MessageBox.Show("Responsável de informática: " + Escola.ObterResponsavel(), Escola.NOME,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("O nome tem de ter pelo menos 2 caracteres.", "Responsável",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtResponsavel.Text = Escola.ObterResponsavel();
+            }
+
             // TODO Fase 2: alterar o responsável de informática com Escola.AlterarResponsavel(...)
         }
 
@@ -236,12 +268,12 @@ namespace GestaoEquipamentos.Interface
                     linha.SubItems.Add(eq.ObterPrecoCompra().ToString());  // Preço
                     linha.SubItems.Add("");  //Estado
                     linha.SubItems.Add("");  //Valor atual
-     
+
                     lvEquipamentos.Items.Add(linha);
                 }
-               
+
                 //lblResumo.Text = "Equipamentos na lista: " + contador;
-            }    
+            }
 
             lblResumo.Text = "Equipamentos na lista: " + contador;
         }
@@ -249,6 +281,11 @@ namespace GestaoEquipamentos.Interface
         private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO Fase 8: mostrar só os equipamentos do estado escolhido (gestor.Pesquisar(estado))
+        }
+
+        private void txtDetalhes_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

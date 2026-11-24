@@ -14,8 +14,4 @@
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Logica\" />
-  </ItemGroup>
-
 </Project>

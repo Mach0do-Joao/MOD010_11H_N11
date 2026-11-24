@@ -19,25 +19,18 @@ namespace GestaoEquipamentos.Modelo
         public int anoAquisicao;
         public decimal precoCompra;
 
-        public Equipamento(string _Marca, string _Modelo, string _Sala, int _AnoAquisicao, decimal _PrecoCompra)
+        public Equipamento(string _marca, string _modelo, string _sala, int _anoAquisicao, decimal _precoCompra)
         {
 
+            // Cada equipamento recebe o número seguinte
             id = proximoId;
-            proximoId = proximoId + 1;
+            proximoId++;
 
-            marca = _Marca;
-            modelo = _Modelo;
-            sala = _Sala;
-            if (_AnoAquisicao < ANO_MINIMO_AQUISICAO)
-            {
-                anoAquisicao = ANO_MINIMO_AQUISICAO;
-            }
-            else
-            {
-                anoAquisicao = _AnoAquisicao;
-            }
-
-            AlterarPrecoCompra(_PrecoCompra);
+            marca = _marca;
+            modelo = _modelo;
+            sala = _sala;
+            anoAquisicao = _anoAquisicao;
+            AlterarPrecoCompra(precoCompra);
         }
 
         public int ObterId()
