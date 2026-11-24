@@ -60,34 +60,26 @@ namespace GestaoEquipamentos.Interface
                 linha.SubItems.Add("");                     // Valor atual
 
                 lvEquipamentos.Items.Add(linha);*/
-                AtaulizarResumo();
+                txtDetalhes.Text = "";
+                AtualizarResumo();
               }
             
             //lblResumo.Text = "Equipamentos na lista:" + equipamentos.Count;
         }
 
-        private void AtaulizarResumo()
+        private ListViewItem CriarLinha(Equipamento equipamento)
         {
-            lblResumo.Text = "Equipamentos na lista:" + equipamentos.Count; // count conta (lem do python)
-        }
-
-        private ListViewItem CriarLinha(Equipamento equipamento)  // criar uma linha de objeto, dps é adiciona
-        {
-           
-            ListViewItem linha = new ListViewItem("");
-
-            linha.SubItems.Add("");                     // ID
-            linha.SubItems.Add(equipamento.marca);                  // Marca
-            linha.SubItems.Add(equipamento.modelo);              // Modelo
-            linha.SubItems.Add("");                     // N.º de série
-            linha.SubItems.Add(equipamento.sala);                // Sala
-            linha.SubItems.Add(equipamento.anoAquisicao.ToString()); // Ano
-            linha.SubItems.Add(equipamento.precoCompra.ToString());  // Preço
-            linha.SubItems.Add("");                     // Estado
-            linha.SubItems.Add("");                     // Valor atual
-
+            ListViewItem linha = new ListViewItem("");          // Id (Fase 2)
+            linha.SubItems.Add("");                             // Tipo (Fase 6)
+            linha.SubItems.Add(equipamento.marca);
+            linha.SubItems.Add(equipamento.modelo);
+            linha.SubItems.Add("");                             // N.º de série (Fase 3)
+            linha.SubItems.Add(equipamento.sala);
+            linha.SubItems.Add(equipamento.anoAquisicao.ToString());
+            linha.SubItems.Add(equipamento.precoCompra.ToString("0.00") + " €");
+            linha.SubItems.Add("");                             // Estado (Fase 8)
+            linha.SubItems.Add("");                             // Valor atual (Fase 6)
             return linha;
-            
         }
 
         // TODO Fase 1: criar o método MostrarEquipamentos(), que limpa a ListView
@@ -98,6 +90,21 @@ namespace GestaoEquipamentos.Interface
         //              Dica:  ListViewItem linha = new ListViewItem("");
         //                     linha.SubItems.Add("");  linha.SubItems.Add(equipamento.Marca); ...
         //                     lvEquipamentos.Items.Add(linha);
+        private void AtualizarResumo()
+        {
+            lblResumo.Text = "Equipamentos na lista: " + equipamentos.Count;
+        }
+
+        // Devolve o equipamento selecionado na lista, ou null se não houver nenhum selecionado
+        private Equipamento ObterEquipamentoSelecionado()
+        {
+            if (lvEquipamentos.SelectedIndices.Count == 0)
+            {
+                return null;
+            }
+            int indice = lvEquipamentos.SelectedIndices[0];
+            return equipamentos[indice];
+        }
 
         // ---------- Botões ----------
 
@@ -106,15 +113,15 @@ namespace GestaoEquipamentos.Interface
             // TODO Fase 1: abrir o FormEquipamento com ShowDialog(); se devolver DialogResult.OK,
             //              juntar form.EquipamentoCriado à lista e chamar MostrarEquipamentos()
             FormEquipamento form = new FormEquipamento();
-
             if (form.ShowDialog() == DialogResult.OK)
             {
-                // Se o utilizador guardou, juntar o novo equipamento à lista
                 equipamentos.Add(form.EquipamentoCriado);
-
-                // Atualizar a listagem no formulário principal
                 MostrarEquipamentos();
             }
+            // Se o utilizador guardou, juntar o novo equipamento à lista
+            // Não é preciso "guardar na lista": o formulário alterou o próprio objeto,
+            // e a lista aponta para esse mesmo objeto (é a mesma referência).
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -124,57 +131,42 @@ namespace GestaoEquipamentos.Interface
             //              chamar MostrarEquipamentos()
             // 1. Verificar se há algum equipamento selecionado na ListView
             // 2. Verificar se é null (ou seja, se não há nada selecionado)
-
-            
-             
-
-            //privete Equipamento ObterEquipamentoSelecionado()
-            if (lvEquipamentos.SelectedItems.Count == 0)
+            Equipamento equipamento = ObterEquipamentoSelecionado();
+            if (equipamento == null)
             {
-                MessageBox.Show("Por favor, seleciona um equipamento para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione primeiro um equipamento na lista.", "Editar",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int indice = lvEquipamentos.SelectedItems[0].Index;
-            Equipamento eqSelecionado = equipamentos[indice];
-
-            FormEquipamento form = new FormEquipamento(eqSelecionado);
-
+            FormEquipamento form = new FormEquipamento(equipamento);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 MostrarEquipamentos();
             }
         }
+            //privete Equipamento ObterEquipamentoSelecionado()
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
             // TODO Fase 1: obter o equipamento selecionado (se não houver, mostrar uma mensagem),
             //              pedir confirmação, retirar da lista e pôr a variável a null
-            if (lvEquipamentos.SelectedItems.Count == 0)
+            Equipamento equipamento = ObterEquipamentoSelecionado();
+            if (equipamento == null)
             {
-                MessageBox.Show("Por favor, seleciona um equipamento.", "Aviso");
+                MessageBox.Show("Selecione primeiro um equipamento na lista.", "Editar",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int indice = lvEquipamentos.SelectedItems[0].Index;
-            Equipamento eqSelecionado = equipamentos[indice];
-
-            if (eqSelecionado == null)
+            DialogResult resposta = MessageBox.Show("Remover o equipamento " + equipamento.marca + " " + equipamento.modelo + "?", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resposta == DialogResult.Yes)
             {
-                MessageBox.Show("Equipamento inválido.", "Aviso");
-                return;
-            }
-
-            DialogResult resultado = MessageBox.Show("Tens a certeza que pretendes remover este equipamento?","Confirmar Remoção",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
-            {
-                equipamentos.Remove(eqSelecionado);
-                eqSelecionado = null;
-                MostrarEquipamentos();
+            equipamentos.Remove(equipamento);
+            equipamento = null;
+            MostrarEquipamentos();
             }
         }
-
         private void lvEquipamentos_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO Fase 1: mostrar em txtDetalhes os dados do equipamento selecionado
