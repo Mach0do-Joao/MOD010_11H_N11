@@ -17,15 +17,6 @@ namespace GestaoEquipamentos.Interface
         // No modo editar aponta para o equipamento a alterar; no modo adicionar fica null
         private Equipamento equipamentoEmEdicao;
 
-        public FormEquipamento()
-        {
-            InitializeComponent();
-            Text = "Adicionar equipamento";
-            nudAno.Minimum = Equipamento.ANO_MINIMO_AQUISICAO;
-            nudAno.Maximum = DateTime.Today.Year;
-            nudAno.Value = DateTime.Today.Year;
-        }
-
         // TODO Fase 1: criar o campo List<Equipamento> equipamentos (já com new)
         List<Equipamento> equipamentos = new List<Equipamento>();
 
